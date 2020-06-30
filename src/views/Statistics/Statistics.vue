@@ -1,5 +1,6 @@
 <template>
-  <div>数据分析
+  <div class='statistics'>
+    <p class='module-name'>数据分析</p>
 
     <EchartDoughnut/>
   </div>
@@ -16,5 +17,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .statistics{
+    padding-top: 1rem;
+    padding-left: 0.2rem;
+  }
 </style>

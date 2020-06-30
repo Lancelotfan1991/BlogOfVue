@@ -30,7 +30,7 @@ export default {
   }
 
   body{
-    position: fixed;
+    position: relative;
     width: 7.5rem;
     font-size: 0.26rem;
   }

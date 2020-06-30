@@ -3,6 +3,13 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+// 在引用vue-router的页面添加一段代码
+ 
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 const Home=()=>import('../views/Home/Home');
 const Detail=()=>import('../views/Detail/Detail');
 const ArticleCenter=()=>import('../views/ArticleCenter/ArticleCenter');
@@ -11,7 +18,7 @@ const About=()=>import('../views/About/About');
 const routes=[
   {
     path:'',
-    redirect:"/Detail"
+    redirect:"/ArticleCenter"
   },
   {
     path:"/Home",
@@ -31,7 +38,7 @@ const routes=[
   },
   {
     path:"/ArticleCenter",
-    component:ArticleCenter
+    component:Detail
   }
 ]
 

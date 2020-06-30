@@ -14,23 +14,17 @@ module.exports={
     }
   },
   chainWebpack: config => {
-    config.module.rule('md')
-     .test(/\.md/)
-     .use('vue-loader')
-     .loader('vue-loader')
-     .end()
-     .use('vue-markdown-loader')
-     .loader('vue-markdown-loader/lib/markdown-compiler')
-     .options({
-      // markdown-it config
-      preset: 'default',
-      breaks: true,
-      raw: true,
-      typographer: true,
-      preprocess: function(markdownIt, source) {
-       return parser.makeHtml(source);//重点在这里！！！
-      }
-     })
+    config.module
+      .rule('md')
+      .test(/\.md$/)
+      .use('vue-loader')
+      .loader('vue-loader')
+      .end()
+      .use('vue-markdown-loader')
+      .loader('vue-markdown-loader/lib/markdown-compiler')
+      .options({
+        raw: true
+      })
   },
   publicPath:process.env.NODE_ENV === 'production'
   ? "./"
