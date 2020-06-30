@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class='blog'>
+    <CommonHeader></CommonHeader>
+    <router-view path='/'></router-view>
+    <TabBar/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CommonHeader from 'components/common/header/Header.vue';
+import TabBar from 'components/common/tabBar/TabBar'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CommonHeader,
+    TabBar
+  },
+  mounted(){
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('assets/css/base.css');
+  html{
+    font-size: calc(100vw / 7.5);
+    font-family: "Noto Sans SC";
+  }
+
+  body{
+    position: fixed;
+    width: 7.5rem;
+    font-size: 0.26rem;
+  }
 </style>
