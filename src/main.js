@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
+import VConsole from 'vconsole'
 
-/********** 引用ElementUI组件库 *****************/
-import { Button, Select, Option, DatePicker, Badge, Row } from 'element-ui'
-Vue.use(Button);
-Vue.use(Select);
-Vue.use(Option);
-Vue.use(Badge);
-Vue.use(DatePicker);
-Vue.use(Row);
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+// use
+Vue.use(mavonEditor);
 
-/*********Echarts 用于绘制图表(按需引入方式) *******/
-import ECharts from 'vue-echarts'
+import requireComponent from './utils/reg'//导入全部的基础组件，方便之后在项目中直接使用
 
-Vue.component('v-chart',ECharts);
 Vue.config.productionTip = false
 
-new Vue({
+var app=new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
+
+if(process.env.NODE_ENV == 'production'){
+  new VConsole();
+}

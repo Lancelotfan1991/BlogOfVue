@@ -16,12 +16,13 @@ export default {
         {name:"Vue"},
         {name:"React"},
         {name:"Laya"},
-        {name:"Js基础"},
+        {name:"Js基础"}, 
         {name:"数据结构"},
-        {name:"过往项目"},
+        {name:"算法"},
         {name:"Webpack"},
         {name:"正则表达式"},
-        {name:"Flutter"}
+        {name:"Flutter"},
+        {name:"NodeJS"}
       ]
     }
   }

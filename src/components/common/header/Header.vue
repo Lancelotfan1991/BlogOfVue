@@ -1,7 +1,7 @@
 <template>
   <div class='common-header'>
-    <p class='blog-name'>测试</p>
-    <img class='drawer' src="~assets/image/drawer.png" alt="">
+    <p class='blog-name'>凡事</p>
+    <img class='drawer' v-show="false" src="~assets/image/drawer.png" alt="">
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
     color: white;
     font-size: 24px;
     box-shadow: 0 2px 2px 2px #ccc;
-    z-index: 10;
+    z-index: 2000;
   }
 
   .blog-name{

@@ -1,6 +1,3 @@
-let HyperDown = require('hyperdown');
-let parser = new HyperDown;
-
 module.exports={
   configureWebpack:{
     resolve:{
@@ -17,14 +14,12 @@ module.exports={
     config.module
       .rule('md')
       .test(/\.md$/)
-      .use('vue-loader')
-      .loader('vue-loader')
+      .use('html-loader')
+      .loader('html-loader')
       .end()
-      .use('vue-markdown-loader')
-      .loader('vue-markdown-loader/lib/markdown-compiler')
-      .options({
-        raw: true
-      })
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end()
   },
   publicPath:process.env.NODE_ENV === 'production'
   ? "./"

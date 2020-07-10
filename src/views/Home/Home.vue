@@ -1,123 +1,77 @@
 <template>
-  <div class='center'>
-    <div class='article-item' v-for='(item,index) in articleList' :key='index'>
-      <p class='article-item-name'>{{item.tab}}</p>
-      <div class='article-content'>
-        <div class='left-part'>
-          <ClassificationCover :keywords="item.keywords"/>
-        </div>
-        <div class='right-part'>
-          <ArticleCover @click='goDetail' v-for="(listitem,index) in item.list" :key="index" :img='listitem.image' :title="listitem.title"/>
-        </div>
-      </div>
+  <div>
+    <img class='headimg' src="~assets/image/home/headimg.jpg" alt="">
+    <div class='my-title'>
+      <p>欢迎!</p>
+      <p>你可以在此选择查看感兴趣的内容</p>
+      <p>以下是所有可被选择的标签</p>
+    </div>
+    <div class='tag-list'>
+      <van-row type='flex' justify='space-around'>
+        <van-col span="7" @click="$router.push('/ArticleList/Vue')"><p>Vue</p></van-col>
+        <van-col span="7" @click="$router.push('/ArticleList/React')"><p>React</p></van-col>
+        <van-col span="7" @click="$router.push('/ArticleList/Laya')"><p>Laya</p></van-col>
+      </van-row>
+      <van-row type='flex' justify='space-around'>
+        <van-col span="7" @click="$router.push('/ArticleList/JS')"><p>JS基础</p></van-col>
+        <van-col span="15"  @click="$router.push('/ArticleList/DataStructure')"><p>数据结构</p></van-col>
+      </van-row>
+      <van-row type='flex' justify='space-around'>
+        <van-col span="7" @click="$router.push('/ArticleList/RegExp')"><p>正则表达式</p></van-col>
+        <van-col span="7" @click="$router.push('/ArticleList/Webpack')"><p>Webpack</p></van-col>
+        <van-col span="7"><p>案例</p></van-col>
+      </van-row>
+      <van-row type='flex' justify='space-around'>
+        <van-col span="15" @click="$router.push('/ArticleList/Algorithm')"><p>算法</p></van-col>
+        <van-col span="7"><p>游戏</p></van-col>
+      </van-row>
     </div>
   </div>
 </template>
 
 <script>
-import ArticleCover from 'components/content/article_cover/ArticleCover'
-import ClassificationCover from 'components/content/classification_cover/ClassificationCover'
+import Vue from 'vue';
+import { Col, Row } from 'vant';
+
+Vue.use(Col);
+Vue.use(Row);
+
 export default {
   data(){
-    return {
-      articleList:[
-        {
-          tab:"最新",
-          list:[
-            {image:"article/MaltaEurope.jpg",title:"电子表格",link:"",date:""},
-            {image:"article/The Empress.jpg",title:"标题1",link:"",date:"2019-04-15"},
-            {image:"article/Campo de girasoles.jpg",title:"标题2",link:"",date:"2019-04-15"}
-          ],
-          keywords:['正则表达式',"ElementUI"]
-        },
-        {
-          tab:"前端",
-          list:[
-            {image:"article/Ban Gioc Falls.jpg",title:"标题1",link:"",date:"2019-04-15"},
-            {image:"article/Campo de girasoles.jpg",title:"标题2",link:"",date:"2019-04-15"}
-          ],
-          keywords:['Vue2.0',"小程序","HTML5","Flutter"]
-        },
-        {
-          tab:"游戏",
-          list:[
-            {image:"article/Campo de girasoles.jpg",title:"标题1",link:"",date:"2019-04-15"},
-            {image:"article/Campo de girasoles.jpg",title:"标题2",link:"",date:"2019-04-15"}
-          ],
-          keywords:['Unity',"LayaAir"]
-        },
-        {
-          tab:"个人案例库",
-          list:[
-            {image:"article/The Empress.jpg",title:"标题1",link:"",date:"2019-04-15"},
-            {image:"article/Campo de girasoles.jpg",title:"标题2",link:"",date:"2019-04-15"}
-          ],
-          keywords:['小程序',"SPA站点","H5游戏"]
-        }, 
-        {
-          tab:"收藏夹",
-          list:[
-            {image:"article/The Empress.jpg",title:"标题1",link:"",date:"2019-04-15"},
-            {image:"article/Campo de girasoles.jpg",title:"标题2",link:"",date:"2019-04-15"}
-          ],
-          keywords:['移动端案例',"精美H5"]
-        },
-        {
-          tab:"关于本博客",
-          list:[
-            {image:"article/The Empress.jpg",title:"技术",id:"",date:"2019-04-15"},
-            {image:"article/The Empress.jpg",title:"代码和风格指南",id:"",date:"2019-04-15"}
-          ],
-          keywords:['技术','风格指南']
-        }
-      ]
-    }
-  },
-  components:{
-    ArticleCover,
-    ClassificationCover,
-    // StyleMD
-  },
-  methods:{
-    goDetail(id){
-      this.$router.push('/detail');
-    }
+    return {}
   }
 }
 </script>
 
 <style scoped>
-  .center{
-    position: relative;
-    height: 100vh;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  .headimg{
+    margin: 2rem 1.5rem 0 1.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
   }
 
-  .article-item{
-    display: block;
-    margin-top: 20px;
-    margin-left: 20px;
+  .my-title{
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.4rem;
+    line-height: 0.5rem;
   }
 
-  .article-item-name{
-    font-size: 20px;
-    text-align: left;
+  .tag-list{
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+  
+  .tag-list p{
+    background-color: red;
+    font-size: 0.3rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    vertical-align: middle;
+    margin-top: 0.1rem;
+    background-color: #39a9ed;
+    font-weight: bolder;
+    color: white;
   }
 
-  .article-content{
-    overflow-x: scroll;
-    display: flex;
-    flex-shrink: 1;
-  }
-
-  .left-part{
-    display: flex;
-  }
-
-  .right-part{
-    display: flex;
-  }
 </style>

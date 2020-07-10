@@ -5,6 +5,12 @@
 </template>
 
 <script>
+import Vue from 'vue';
+/*********Echarts 用于绘制图表(按需引入方式) *******/
+import ECharts from 'vue-echarts'
+
+Vue.component('v-chart',ECharts);
+
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'

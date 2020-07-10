@@ -28,6 +28,7 @@ export default {
     background-color: white;
     
     box-shadow: 0 -2px 2px 2px rgba(0,0,0,.1);
+    z-index: 2000;
   }
 
   .item{
