@@ -83,6 +83,35 @@ undefined,0,1,2
 undefined,0,1,1
 ```
 
+### 闭包的运用
+
+bind方法，该方法接受一个函数和一个语境(上下文对象)，并返回一个在给定环境中调用给定函数的函数。并将所有的参数原封不动的传递过去。
+
+```javascript
+var handler={
+    message:"提示 Event Handled",
+    handleClick : function(event){
+        alert(this.message +":"+event.type);
+    }
+}
+
+function bind(fn,context){
+    return function(){
+        return fn.apply(context,arguments);
+    }
+}
+
+var button=document.getElementById("my-btn");
+//在不绑定的情况下，最终的结果会是undefined，因为没有保存handler.handleClick的环境，所以this的对象最终指向了window
+EventUtil.addHandler(btn,"click",handler.handleClick);
+//采用bind的方式，创建了一个保存执行环境的函数。
+EventUtil.addHandler(btn,"click",bind(hanlder.handleClick,handler));
+//在ES5中，所有的函数都有自己的bind方法，可以直接bind到指定的环境
+EventUtil.addHandler(btn,"click",hanlder.handleClick.bind(handler));
+```
+
+
+
 ### 闭包的缺陷：
 
 会导致内存占用过高，因为变量没有得到释放。
@@ -94,3 +123,4 @@ undefined,0,1,1
 每个模块都可以调用，当程序越来越复杂之后，会带不可预测的危险
 
 所以推荐变量尽量私有化，当我们需要让局部变量发挥全局变量的作用时，可以考虑使用闭包
+
