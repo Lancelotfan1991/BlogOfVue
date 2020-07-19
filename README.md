@@ -18,6 +18,8 @@
 
 [4-JS基础-继承2](./src/markdown/AboutJS/JS基础-继承2.md)
 
+[5-JS基础-防抖和节流](./src/markdown/AboutJS/JS基础-防抖和节流.md)
+
 ## ES6
 
 [1-ES6-解构](./src/markdown/AboutES6/ES6_解构.md)

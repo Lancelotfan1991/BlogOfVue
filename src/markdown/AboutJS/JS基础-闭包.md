@@ -110,6 +110,10 @@ EventUtil.addHandler(btn,"click",bind(hanlder.handleClick,handler));
 EventUtil.addHandler(btn,"click",hanlder.handleClick.bind(handler));
 ```
 
+### 闭包的运用之2
+
+[防抖和节流函数。](./JS基础-防抖和节流.md);
+
 
 
 ### 闭包的缺陷：

@@ -10,7 +10,15 @@ isExtensible：判断一个对象是否可以扩展
 
 seal：密封一个对象
 
-isSealed
+isSealed：判断一个对象是不是密封的
 
 freeze： **`Object.freeze()`** 方法可以**冻结**一个对象。一个被冻结的对象再也不能被修改； 
+
+isFrozen：判断一个对象是否已被冻结。
+
+
+
+
+
+第二个部分：
 

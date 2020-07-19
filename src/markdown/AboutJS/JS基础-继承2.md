@@ -1,4 +1,4 @@
-# JS基础-继承2-继承的六种继承方式：
+# JS基础-六种继承方式：
 
 >本文章部分案例来自于 https://blog.csdn.net/yigongzi/article/details/88954076 
 
@@ -208,7 +208,7 @@ function inheritPrototype(childType, superType) {
 }
 ```
 
-可以用寄生组合继承来解决上面组合继承的问题：
+可以用寄生组合继承来解决上面组合继承中存在的重复调用父类构造函数的问题：
 
 ```javascript
 function SuperType(name){

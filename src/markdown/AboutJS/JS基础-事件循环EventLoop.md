@@ -2,24 +2,28 @@
 
 来自转载：
 
-宏队列和微队列
-宏队列，macrotask，也叫tasks。 一些异步任务的回调会依次进入macro task queue，等待后续被调用，这些异步任务包括：
+### 宏队列和微队列
 
-setTimeout
-setInterval
-setImmediate (Node独有)
-requestAnimationFrame (浏览器独有)
-I/O
-UI rendering (浏览器独有)
-微队列，microtask，也叫jobs。 另一些异步任务的回调会依次进入micro task queue，等待后续被调用，这些异步任务包括：
+> 宏队列，macrotask，也叫tasks。 一些异步任务的回调会依次进入macro task queue，等待后续被调用，这些异步任务包括：
+>
+> setTimeout
+> setInterval
+> setImmediate (Node独有)
+> requestAnimationFrame (浏览器独有)
+> I/O
+> UI rendering (浏览器独有)
 
-process.nextTick (Node独有)
-Promise
-Object.observe
-MutationObserver
-（注：这里只针对浏览器和NodeJS）
+### 微队列
 
+>microtask，也叫jobs。 另一些异步任务的回调会依次进入micro task queue，等待后续被调用，这些异步任务包括：
+>
+>process.nextTick (Node独有)
+>Promise
+>Object.observe
+>MutationObserver
+>（注：这里只针对浏览器和NodeJS)
 
+### 浏览器处理事件循环的顺序
 
 1，执行全局Script同步代码，这些同步代码有一些是同步语句，有一些是异步语句（比如setTimeout等）；
 全局Script代码执行完毕后，调用栈Stack会清空；
@@ -54,6 +58,9 @@ setTimeout(() => {
 })
 
 console.log(7);
+
+//最终打印的结果是:
+// 1 4 7 5 2 3 6
 ```
 
 
