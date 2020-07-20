@@ -6,7 +6,9 @@
 
 [1-Vue双向绑定原理](./src/markdown/AboutVue/Vue响应式源码.md)
 
-[2-Vue-Router的原理和理解](./src/markdown/AboutVue/VueRouter的原理和理解.md)
+[2-Vue-Router的原理](./src/markdown/AboutVue/VueRouter(1)-原理.md)
+
+[3-Vue-Router的理解](./src/markdown/AboutVue/VueRouter(2)-理解.md)
 
 ## JS-基础
 
@@ -14,7 +16,7 @@
 
 [2-JS基础-原型链](./src/markdown/AboutJS/JS基础-原型链.md)
 
-[3-JS基础-事件循环](./src/markdown/AboutJS/JS基础-事件循环.md)
+[3-JS基础-事件循环](./src/markdown/AboutJS/JS基础-事件循环EventLoop.md)
 
 [4-JS基础-继承2](./src/markdown/AboutJS/JS基础-继承2.md)
 

@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href='/home'>首页</a>
+  <a href='/about'>关于</a>
+  <a href='/profile'>我的</a>
+  
+  <div id='router-view'>
+      首页
+  </div>
+  
+  <script>
+    let aEls=document.getElementsByTagName('a');
+      for(let ele of aEls){
+          ele.addEventListener('click',()=>{
+             event.preventDefault();
+             let href=ele.getAttribute('href')
+             window.history.pushState({},'',href);
+             changeURL(); 
+          });
+      }
+      
+      function changeURL(){   //根据路由的不同渲染不同的逻辑
+          let routerview= document.getElementById('router-view');
+          let href=window.location.pathname;
+          switch(href){
+              case '/home':
+                  routerview.innerHTML='首页'
+                  break;
+              case '/about':
+                  routerview.innerHTML='关于'
+                  break;
+              case '/profile':
+                  routerview.innerHTML='我的'
+                  break;
+          }
+      }
+
+      window.addEventListener('popstate',()=>{  //添加popstate事件，监听主动go，forward以及点击浏览器上方的前进后退等按钮
+        changeURL();
+      })
+  </script>
+</body>
+</html>

@@ -81,7 +81,7 @@ const request=function(options){
             }else{
                 reject(new Error(this.statusText));
             }
-        }
+        } 
         const xhr=new XMLHttpRequest();
         if(options.method=='get') xhr.open('GET',options.url);//确定xhr的请求格式,如果是get请求则url后面要跟上参数
         else if(options.method=='post')	xhr.opne('POST',options.url);

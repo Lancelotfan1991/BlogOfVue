@@ -111,7 +111,7 @@ window.addEventListener('popstate', e => {
 
 2，当事件被监听后，会调用transitionTo方法，从而使得route对象发生改变。
 
-而route的改变早已在beforeCreate的时候，由Vue自己定义了响应式。
+而route的改变早已在beforeCreate的时候，完成了双向绑定。
 
 因此，当route对象发生改变时，router-view组件会重新渲染。调用自身的h函数。
 

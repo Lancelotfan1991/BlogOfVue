@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href='#/home'>首页</a>
+  <a href='#/about'>关于</a>
+  <a href='#/profile'>我的</a>
+  
+  <div id='router-view'>首页</div>
+    
+  <script>
+      const aEls=document.getElementsByTagName('a');
+      for(let ele of aEls){
+          ele.addEventListener('click',(e)=>{
+              e.preventDefault();	//阻止a按钮的默认点击事件
+              console.log(ele);
+              let href=ele.getAttribute('href');	//huoqu 
+              window.location.hash=href;
+          });
+      }
+      
+      window.addEventListener('hashchange',(e)=>{
+        
+          let hash=window.location.hash;
+          console.log(hash);
+          let routerview=document.getElementById('router-view');
+          switch(hash){
+              case '#/home':
+                  routerview.innerHTML='首页'
+               break;
+              case '#/about':
+                  routerview.innerHTML='关于'
+              break;
+              case '#/profile':
+                routerview.innerHTML='我的'
+               break;
+          }
+      })
+  </script>
+</body>
+</html>
